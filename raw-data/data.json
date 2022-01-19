@@ -1,0 +1,17 @@
+[
+    {
+        "testidentifier": "Create Accidental Injury Claim",
+        "policynumber": 8765423,
+        "type": "Accident Only Cover",
+        "claimtype": "Disability Claim",
+        "assuredlife": "Mr Jeffrey Dunker",
+        "emailaddress": "jeffrey@dunker.com"
+    },
+    {
+        "testidentifier": "Create Accidental Injury Claim",
+        "policynumber": 9834768,
+        "type": "Accident Only Cover",
+        "claimtype": "Disability Claim",
+        "assuredlife": "Miss Mary Maker"
+    }
+]

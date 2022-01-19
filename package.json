@@ -1,0 +1,11 @@
+{
+  "name": "json-reshaper",
+  "version": "1.0.0",
+  "description": "A package which aims to reshape a JSON file to a layout based upon a template",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "author": "Paul Cluver",
+  "license": "ISC"
+}
