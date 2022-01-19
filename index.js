@@ -1,6 +1,6 @@
 const fs = require('fs');
 const path = require('path');
-let filePath = path.resolve(`${__dirname}/raw-data/dataa.json`);
+let filePath = path.resolve(`${__dirname}/raw-data/data.json`);
 let tempObject = [];
 let formattedObj = [];
 
