@@ -1,36 +1,39 @@
-const fs = require('fs');
-const path = require('path');
-let filePath = path.resolve(`${__dirname}/raw-data/data.json`);
-let tempObject = [];
-let formattedObj = [];
-
-function readJson() {
-  try {
-    const jsonString = fs.readFileSync(filePath);
-    return tempObject.push(JSON.parse(jsonString));
+const rawData = [
+    {
+      "testidentifier": "Create A Death Claim",
+      "policynumber": 8765423,
+      "claimtype": "Death Claim",
+      "assuredlife": "Mr Jeffrey Dunker",
+      "emailaddress": "jeffrey@dunker.com",
+      "Streetnumber": 1,
+      "streetname": "Red Street",
+      "city": "Durban",
+      "province": "KZN",
+      "country": "South Africa"
+  },
+  {
+      "testidentifier": "Create Retrenchment Claim",
+      "policynumber": 9834768,
+      "claimtype": "Disability Claim",
+      "assuredlife": "Miss Mary Maker",
+      "emailaddress": "mary@maker.com",
+      "Streetnumber": 2,
+      "streetname": "Blue Street",
+      "city": "Cape Town",
+      "province": "Western Cape",
+      "country": "South Africa"
   }
-  catch(err) {
-    console.log(err)
-    return
+]
+
+const newStructure = [
+  {
+    "test id": {
+      "item 1": "item 1 data",
+      "item 2": "item 2 data"
+    }
   }
-};
+]
 
-function formatTempObject() {
-  for (const [key, value] of Object.entries(tempObject[0])) {
-    formattedObj.push(value);
-  };
-}
-
-function groupFormattedObject() {
-  var grouped = formattedObj.reduce(function (obj, testItem) {
-    obj[testItem.testidentifier] = obj[testItem.testidentifier] || [];
-    obj[testItem.testidentifier].push(testItem);
-    return obj;
-  }, {});
-  return grouped;
-}
-
-readJson();
-formatTempObject();
-var groupedTestData = groupFormattedObject();
-console.dir(groupedTestData);
+const source = {};
+const returnTarget = Object.assign(rawData, source)
+console.log(newStructure);
