@@ -7,5 +7,9 @@
     "test": "test"
   },
   "author": "Paul Cluver",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "commander": "^8.3.0",
+    "inquirer": "^8.2.0"
+  }
 }
