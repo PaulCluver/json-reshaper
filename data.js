@@ -12,16 +12,16 @@ const testdata = [
     "country": "South Africa"
   },
   {
-      "testid": "test case 2",
-      "title": "Mrs",
-      "firstname":  "Mary",
-      "lastname": "Maker",
-      "emailaddress": "mary@maker.com",
-      "Streetnumber": 212,
-      "streetname": "Blue Street",
-      "city": "Cape Town",
-      "province": "Western Cape",
-      "country": "South Africa"
+    "testid": "test case 2",
+    "title": "Mrs",
+    "firstname":  "Mary",
+    "lastname": "Maker",
+    "emailaddress": "mary@maker.com",
+    "Streetnumber": 212,
+    "streetname": "Blue Street",
+    "city": "Cape Town",
+    "province": "Western Cape",
+    "country": "South Africa"
   }
 ];
 const allKeys = [];
@@ -45,22 +45,18 @@ const reShapedObject = [];
     });
   };
 
-  async function reShapeJson(chosenNode) {
-    filterIndexes(chosenNode);
-    let newObj = {};
-    newObj[chosenNode] = uniqueKeys
-    reShapedObject.push(newObj);
+  async function reShapeAndPopulateJson(chosenNode) {
+    testdata.forEach(function (dataSet) {
+      let testID = dataSet.testid;
+      delete dataSet[chosenNode];
+      reShapedObject[testID] = dataSet;
+    });
   }
 
-  function filterIndexes(itemToFilterOut) {
-    var index = uniqueKeys.indexOf(itemToFilterOut);
-    uniqueKeys.splice(index, 1);
-  };
-
   module.exports.uniqueKeys = uniqueKeys;
-  module.exports.setUniqueKeys = setUniqueKeys;
-  module.exports.reShapeJson = reShapeJson;
   module.exports.reShapedObject = reShapedObject;
+  module.exports.setUniqueKeys = setUniqueKeys;
+  module.exports.reShapeAndPopulateJson = reShapeAndPopulateJson;
 })();
 
 

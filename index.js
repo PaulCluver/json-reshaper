@@ -7,7 +7,7 @@ function ask() {
 
   const questions = [{
     name: 'chosenNode',
-    type: 'checkbox',
+    type: 'list',
     message: 'Select the parent node(s)',
     choices: uniqueKeys
   }];
@@ -15,8 +15,8 @@ function ask() {
   inquirer
   .prompt(questions[0])
   .then(async function (answer) {
-    data.reShapeJson(answer.chosenNode[0]);
-    console.dir(data.reShapedObject);
+    data.reShapeAndPopulateJson(answer.chosenNode);
+    console.log(data.reShapedObject);
   });
 
 }
