@@ -6,16 +6,17 @@ function ask() {
   let uniqueKeys = data.uniqueKeys
 
   const questions = [{
-    name: 'chooseParentNodes',
+    name: 'chosenNode',
     type: 'checkbox',
-    message: 'Select the parent nodes',
+    message: 'Select the parent node(s)',
     choices: uniqueKeys
   }];
 
   inquirer
   .prompt(questions[0])
   .then(async function (answer) {
-    console.log(answer);
+    data.reShapeJson(answer.chosenNode[0]);
+    console.dir(data.reShapedObject);
   });
 
 }

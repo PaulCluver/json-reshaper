@@ -27,6 +27,7 @@ const testdata = [
 const allKeys = [];
 const uniqueSet = new Set();
 const uniqueKeys = [];
+const reShapedObject = [];
 
 (function () {
 
@@ -44,8 +45,22 @@ const uniqueKeys = [];
     });
   };
 
-  module.exports.setUniqueKeys = setUniqueKeys;
+  async function reShapeJson(chosenNode) {
+    filterIndexes(chosenNode);
+    let newObj = {};
+    newObj[chosenNode] = uniqueKeys
+    reShapedObject.push(newObj);
+  }
+
+  function filterIndexes(itemToFilterOut) {
+    var index = uniqueKeys.indexOf(itemToFilterOut);
+    uniqueKeys.splice(index, 1);
+  };
+
   module.exports.uniqueKeys = uniqueKeys;
+  module.exports.setUniqueKeys = setUniqueKeys;
+  module.exports.reShapeJson = reShapeJson;
+  module.exports.reShapedObject = reShapedObject;
 })();
 
 
