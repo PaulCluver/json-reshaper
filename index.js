@@ -3,10 +3,10 @@ const data = require('./data');
 
 function ask() {
   data.setUniqueKeys();
-  let uniqueKeys = data.uniqueKeys
-
+  let uniqueKeys = data.uniqueKeys;
+   
   const questions = [{
-    name: 'chosenNode',
+    name: 'setParentNode',
     type: 'list',
     message: 'Select the parent node(s)',
     choices: uniqueKeys
@@ -15,7 +15,7 @@ function ask() {
   inquirer
   .prompt(questions[0])
   .then(async function (answer) {
-    data.reShapeAndPopulateJson(answer.chosenNode);
+    data.reShapeAndPopulateJson(answer.setParentNode);
     console.log(data.reShapedObject);
   });
 

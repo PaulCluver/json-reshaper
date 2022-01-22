@@ -47,16 +47,21 @@ const reShapedObject = [];
 
   async function reShapeAndPopulateJson(chosenNode) {
     testdata.forEach(function (dataSet) {
-      let testID = dataSet.testid;
+      let newParentNode = dataSet[chosenNode];
       delete dataSet[chosenNode];
-      reShapedObject[testID] = dataSet;
+      reShapedObject[newParentNode] = dataSet;
     });
   }
+
+  async function resetObject() {
+    reShapedObject = [];
+  };
 
   module.exports.uniqueKeys = uniqueKeys;
   module.exports.reShapedObject = reShapedObject;
   module.exports.setUniqueKeys = setUniqueKeys;
   module.exports.reShapeAndPopulateJson = reShapeAndPopulateJson;
+  module.exports.resetObject = resetObject;  
 })();
 
 
