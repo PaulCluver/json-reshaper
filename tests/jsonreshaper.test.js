@@ -3,13 +3,16 @@ const data = require('../data');
 
 describe('Restructuring json', () => {
 
-    beforeEach('set up the test data', () => {
+    beforeEach(function() {
         data.setUniqueKeys();
     });
 
+    afterEach(function() {
+        data.resetObject();
+    });
+  
     it('should not have duplicate keys in the unique array', () => {
-        let findDuplicates = arr => arr.filter((item, index) => arr.indexOf(item) != index)
-        
+        let findDuplicates = arr => arr.filter((item, index) => arr.indexOf(item) != index);        
         expect(findDuplicates(data.uniqueKeys).length).to.equal(0
             , `There is a duplicate ${findDuplicates(data.uniqueKeys)} in the array`);        
     });
@@ -21,7 +24,7 @@ describe('Restructuring json', () => {
     });
 
     it('should set the expected parent node', () => {
-        data.reShapeAndPopulateJson('streetnumber');
+        data.reShapeAndPopulateJson('streetnumber');        
         Object.keys(data.reShapedObject).forEach(function (key) {
             expect(key).to.not.equals('undefined', 'Expected the parent node to not be undefined');
         });
