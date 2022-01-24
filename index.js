@@ -9,11 +9,14 @@ function ask() {
     type: 'list',
     message: 'Select the parent node(s)',
     choices: uniqueKeys,
-  }];
+  },
+  ];
 
-  inquirer.prompt(questions[0])
-    .then(async (answer) => {
-      data.reShapeAndPopulateJson(answer.setParentNode);
+  inquirer
+    .prompt(questions[0])
+    .then(async (answerOne) => {
+      data.reShapeAndPopulateJson(answerOne.setParentNode);
+      console.dir(data.reShapedObject);
     });
 }
 

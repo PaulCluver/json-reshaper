@@ -26,7 +26,7 @@ const testdata = [
 ];
 const allKeys = [];
 const uniqueSet = new Set();
-const uniqueKeys = [];
+let uniqueKeys = [];
 let reShapedObject = [];
 
 (function reformatData() {
@@ -52,13 +52,18 @@ let reShapedObject = [];
     });
   }
 
-  async function resetObject() {
+  async function resetReshapedObject() {
     reShapedObject = [];
   }
 
-  module.exports.uniqueKeys = uniqueKeys;
+  async function resetUniqueKeys() {
+    uniqueKeys = [];
+  }
+
   module.exports.reShapedObject = reShapedObject;
+  module.exports.uniqueKeys = uniqueKeys;
   module.exports.setUniqueKeys = setUniqueKeys;
   module.exports.reShapeAndPopulateJson = reShapeAndPopulateJson;
-  module.exports.resetObject = resetObject;
+  module.exports.resetReshapedObject = resetReshapedObject;
+  module.exports.resetUniqueKeys = resetUniqueKeys;
 }());
